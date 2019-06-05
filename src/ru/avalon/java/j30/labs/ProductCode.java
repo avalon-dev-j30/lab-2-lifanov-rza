@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
@@ -131,10 +130,7 @@ public class ProductCode {
             return false;
         }
         final ProductCode other = (ProductCode) obj;
-        if (!Objects.equals(this.code, other.code)) {
-            return false;
-        }
-        return true;
+        return this.code.equals(other.code);
     }
 
     /**
@@ -233,7 +229,6 @@ public class ProductCode {
                 connection.commit();
             }
         }
-    connection.rollback();
     }
     /**
      * Возвращает все записи таблицы PRODUCT_CODE в виде коллекции объектов

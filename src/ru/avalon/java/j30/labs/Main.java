@@ -70,12 +70,11 @@ public class Main {
         String url = "Path not found!";
         try {
             fis = new FileInputStream(PATH_DB);
-            proper.load(fis);
-            url = proper.getProperty("host");            
+            proper.load(fis);        
                 } catch (IOException e){
                     System.err.println("Файл свойств не найден!");
                 }
-        return url;
+        return proper.getProperty("host");
     }
     /**
      * Возвращает параметры соединения
