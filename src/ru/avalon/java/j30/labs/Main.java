@@ -66,18 +66,6 @@ public class Main {
      */
     private static String getUrl() {
         return getProperties().getProperty("host");
-        
-        
-//        FileInputStream fis;
-//        Properties proper = new Properties();
-//        String url = "Path not found!";
-//        try {
-//            fis = new FileInputStream(PATH_DB);
-//            proper.load(fis);        
-//                } catch (IOException e){
-//                    System.err.println("Файл свойств не найден!");
-//                }
-//        return proper.getProperty("host");
     }
     /**
      * Возвращает параметры соединения
