@@ -180,7 +180,8 @@ public class ProductCode {
      */
     public static PreparedStatement getUpdateQuery(Connection connection) throws SQLException {
         PreparedStatement prepStatement = connection.prepareStatement(
-                "update PRODUCT_CODE set DISCOUNT_CODE = ? where PROD_CODE = ?");
+                "update PRODUCT_CODE set DISCOUNT_CODE = ?,"
+              + "DESCRIPTION = ? where PROD_CODE = ?");
         return prepStatement;
     }
     /**
@@ -224,6 +225,7 @@ public class ProductCode {
                 this.discountCode != 'X') {
             try (PreparedStatement statement = getUpdateQuery(connection)){
                 statement.setString(2, code);
+                statement.setString(3, description);
                 statement.setString(1, "" + 'X');
                 statement.execute();
                 connection.commit();
